@@ -1,17 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Tetris.Loaders;
+using Tetris.Base;
+using Tetris.Scenes;
 
 namespace Tetris
 {
     public class MainGame : Game
     {
-        GraphicsDeviceManager _graphics;
-        SpriteBatch _spriteBatch;
-
-        private TextureLoader _textureLoader;
-
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private IScene _currentScene;
+        
         public MainGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -20,6 +20,8 @@ namespace Tetris
 
         protected override void Initialize()
         {
+            _currentScene = new MainScene();
+
             base.Initialize();
         }
 
@@ -27,12 +29,11 @@ namespace Tetris
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _textureLoader = new TextureLoader(Content);
+            _currentScene.LoadContent(Content);
         }
 
         protected override void UnloadContent()
         {
-
         }
 
         protected override void Update(GameTime gameTime)
@@ -49,8 +50,7 @@ namespace Tetris
 
             _spriteBatch.Begin();
 
-            foreach (var texture in _textureLoader.LoadedTextures)
-                _spriteBatch.Draw(texture, new Vector2(), Color.White);
+            _currentScene.Draw(_spriteBatch);
 
             _spriteBatch.End();
 

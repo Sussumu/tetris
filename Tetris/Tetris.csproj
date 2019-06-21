@@ -42,11 +42,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Loaders\TextureLoader.cs" />
+    <Compile Include="Base\GameObject.cs" />
+    <Compile Include="Base\Renderable2D.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Props\StraightTetromino.cs" />
+    <Compile Include="Base\IScene.cs" />
+    <Compile Include="Scenes\MainScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

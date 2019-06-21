@@ -1,7 +1,11 @@
-﻿namespace Tetris.Props
+﻿using Tetris.Base;
+
+namespace Tetris.Props
 {
-    public class StraightTetromino
+    public class StraightTetromino : Renderable2D
     {
-        public static string Texture => "assets/straight";
+        public StraightTetromino(string textureName) : base(textureName)
+        {
+        }
     }
 }
