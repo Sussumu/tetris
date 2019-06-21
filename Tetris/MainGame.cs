@@ -22,6 +22,10 @@ namespace Tetris
         {
             _currentScene = new MainScene();
 
+            _graphics.PreferredBackBufferWidth = 590;
+            _graphics.PreferredBackBufferHeight = 960;
+            _graphics.ApplyChanges();
+
             base.Initialize();
         }
 

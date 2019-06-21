@@ -14,7 +14,7 @@ namespace Tetris.Scenes
         {
             RenderableGameObjects = new List<Renderable2D>
             {
-                new StraightTetromino("assets/straight")
+                new Background("assets/background")
             };
         }
 
